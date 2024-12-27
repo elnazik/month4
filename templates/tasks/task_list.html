@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Task List</h1>
+
+  <form method="get">
+    {{ form.as_p }}
+    <button type="submit">Filter</button>
+  </form>
+
+  <ul>
+    {% for task in tasks %}
+      <li><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
